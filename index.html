@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Smart Parking Management</h1>
+            <p class="subtitle">Find and reserve parking spaces efficiently</p>
+        </header>
+
+        <div class="main-container">
+            <!-- Parking Grid Section -->
+            <section class="parking-section">
+                <h2>Parking Lot Layout</h2>
+                <div class="parking-grid" id="parkingGrid"></div>
+                <div class="legend">
+                    <span class="available">Available</span>
+                    <span class="occupied">Occupied</span>
+                    <span class="reserved">Reserved</span>
+                    <span class="path">Path</span>
+                </div>
+            </section>
+
+            <!-- Control Panel -->
+            <section class="control-panel">
+                <!-- Status Overview -->
+                <div class="status-card">
+                    <h3>Parking Status</h3>
+                    <div class="status-metrics">
+                        <div class="metric available">
+                            <span class="count" id="availableCount">0</span>
+                            <span>Available</span>
+                        </div>
+                        <div class="metric occupied">
+                            <span class="count" id="occupiedCount">0</span>
+                            <span>Occupied</span>
+                        </div>
+                        <div class="metric reserved">
+                            <span class="count" id="reservedCount">0</span>
+                            <span>Reserved</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Find Nearest Section -->
+                <div class="search-card">
+                    <h3>Find Nearest Space</h3>
+                    <div class="search-options">
+                        <div class="search-method">
+                            <input type="radio" id="fromEntrance" name="searchMethod" checked>
+                            <label for="fromEntrance">From Entrance</label>
+                        </div>
+                        <div class="search-method">
+                            <input type="radio" id="fromSlot" name="searchMethod">
+                            <label for="fromSlot">From Slot:</label>
+                            <input type="text" id="fromSlotId" placeholder="e.g. 3-4" disabled>
+                        </div>
+                        <div class="search-method">
+                            <input type="radio" id="fromPlate" name="searchMethod">
+                            <label for="fromPlate">From Vehicle:</label>
+                            <input type="text" id="fromLicensePlate" placeholder="License plate" disabled>
+                        </div>
+                    </div>
+                    <button id="findParkingBtn" class="primary-btn">
+                        Find Nearest Available
+                    </button>
+                </div>
+
+                <!-- Reservation Section -->
+                <div class="reservation-card">
+                    <h3>Reserve Space</h3>
+                    <div class="form-group">
+                        <label for="reserveLicensePlate">Your License Plate</label>
+                        <input type="text" id="reserveLicensePlate" placeholder="Enter your plate">
+                    </div>
+                    <div class="selected-slot">
+                        <span>Selected: </span>
+                        <strong id="selectedSlotId">None</strong>
+                    </div>
+                    <button id="reserveBtn" class="primary-btn" disabled>
+                        Reserve Selected
+                    </button>
+                </div>
+
+                <!-- Slot Details -->
+                <!-- Inside the details-card section -->
+            <div class="details-card">
+                <h3>Slot Details</h3>
+                <div id="slotDetails">
+                    <p>Select a slot to view details</p>
+                </div>
+                <div id="slotActions" class="slot-actions">
+                    <!-- Buttons will be added dynamically -->
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
